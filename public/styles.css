@@ -1,0 +1,14 @@
+  
+body {
+  font-family: 'Merriweather';
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Krona One';
+}
+body {
+ background-attachment: fixed;
+ background-image: url("https://github.com/Hans3011/Hans3011.github.io/blob/master/Picture1.jpg?raw=true");
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-color: #cccccc;
+}
