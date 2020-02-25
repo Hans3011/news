@@ -12,3 +12,10 @@ body {
  background-size: cover;
  background-color: #cccccc;
 }
+
+.jumbotron {
+  /* Background */
+  background-color: rgba(40, 6, 83, 0.151);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
