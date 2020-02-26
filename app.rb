@@ -24,19 +24,6 @@ get "/news" do
     @current_temperature = @forecast["currently"]["temperature"]
     @current_summary = @forecast["currently"]["summary"]
     @current_icon = @forecast["currently"]["icon"]
-    
-    @forecast_temperature = Array.new
-    @forecast_summary = Array.new
-    # @forecast_icon = Array.new
-    @forecast_time = Array.new
-    i = 0
-    for day in @forecast["daily"]["data"] do
-        @forecast_temperature[i] = day["temperatureHigh"]
-        @forecast_summary[i] = day["summary"]
-        # @forecast_icon[i] = day["icon"]
-        @forecast_time[i] = day["time"]
-        i = i+1
-    end
 
     @title = Array.new
     @story_link = Array.new

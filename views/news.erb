@@ -39,16 +39,16 @@
                     <i class="fas fa-cloud-moon"></i>
                 <% elsif @current_icon == "partly-cloudy-day" %>
                     <i class="fas fa-cloud-sun"></i>
-                <% elsif @current_icon == "clear-day" %>
-                    <i class="fas fa-sun"></i>
                 <% elsif @current_icon == "clear-night" %>
                     <i class="fas fa-moon"></i>
                 <% elsif @current_icon == "sleet" %>
-                    <i class="fas fa-cloud-showers-heavy"></i>
+                   <i class="fas fa-cloud-sleet"></i>
                 <% elsif @current_icon == "snow" %>
                     <i class="fas fa-snowflake"></i>
                 <% elsif @current_icon == "wind" %>
                     <i class="fas fa-wind"></i>
+                <% elsif @current_icon == "clear-day" %>
+                    <i class="fas fa-sun"></i>
                 <% end %> </p>
             </div>
         </div>
@@ -67,37 +67,21 @@
   <thead>
     <tr>
       <th scope="col">Day</th>
+      <th scope="col">Temperature (low)</th>
       <th scope="col">Temperature (high)</th>
       <th scope="col">Summary</th>
     </tr>
   </thead>
   <tbody>
+   <% for day in @forecast["daily"]["data"].slice(0, 5) %>
     <tr>
-      <td><%= Time.at(@forecast_time[1]).strftime("%a") %></td>
-      <td><%= @forecast_temperature[1] %> </td>
-      <td><%= @forecast_summary[1] %></td>
+      <td><%= Time.at(day["time"]).strftime("%a") %> </td>
+      <td><%= day["temperatureLow"] %></td>
+      <td><%= day["temperatureHigh"] %></td>
+      <td><%= day["summary"] %></td>
     </tr>
-    <tr>
-      <td><%= Time.at(@forecast_time[2]).strftime("%a") %></td>
-      <td><%= @forecast_temperature[2] %></td>
-      <td><%= @forecast_summary[2] %></td>
-    </tr>
-    <tr>
-      <td><%= Time.at(@forecast_time[3]).strftime("%a") %></td>
-      <td><%= @forecast_temperature[3] %></td>
-      <td><%= @forecast_summary[3] %></td>
-    </tr>
-    <tr>
-      <td><%= Time.at(@forecast_time[4]).strftime("%a") %></td>
-      <td><%= @forecast_temperature[4] %></td>
-      <td><%= @forecast_summary[4] %></td>
-    </tr>
-    <tr>
-      <td><%= Time.at(@forecast_time[5]).strftime("%a") %></td>
-      <td><%= @forecast_temperature[5] %></td>
-      <td><%= @forecast_summary[5] %></td>
-    </tr>
-  </tbody>
+  <% end %>
+    </tbody>
 </table>
 </div>
 
